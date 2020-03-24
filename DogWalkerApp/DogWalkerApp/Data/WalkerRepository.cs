@@ -72,6 +72,25 @@ namespace DogWalkerApp.Data
             }
 
         }
+
+        public void DeleteWalker(int walkerId)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Walker WHERE ID = @ID";
+
+                    cmd.Parameters.Add(new SqlParameter("@id", walkerId));
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
+
         public Walker addWalker(Walker walkerToAdd)
         {
             using (SqlConnection conn = Connection)

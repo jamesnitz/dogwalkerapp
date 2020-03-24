@@ -159,8 +159,8 @@ namespace DogWalkerApp.Data
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     List<Walker> foundWalkers = new List<Walker>();
-
-                    if (reader.Read())
+                    //use while if expecting multiple returns. Use if for 1
+                    while (reader.Read())
                     {
                         int idColumn = reader.GetOrdinal("Id");
                         int idValue = reader.GetInt32(idColumn);
@@ -188,14 +188,11 @@ namespace DogWalkerApp.Data
 
                         };
                         foundWalkers.Add(walker);
-                        reader.Close();
 
+                    };
+                        reader.Close();
                         return foundWalkers;
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    
                 }
 
 

@@ -20,7 +20,7 @@ namespace DogWalkerApp
 
            var allWalkers = walkerRepo.getAllWalkers();
            var allOwners = ownerRepo.getAllOwners();
-           var walkersInMemphis = walkerRepo.getWalkersByNeighborhoodId(3);
+           var walkersInMemphis = walkerRepo.getWalkersByNeighborhoodId(1);
 
 
             foreach (var walker in allWalkers)   
@@ -29,9 +29,16 @@ namespace DogWalkerApp
             }
             Console.WriteLine("");
             Console.WriteLine("");
-            foreach (var walker in walkersInMemphis)
+            if (walkersInMemphis.Count >= 1)
             {
-                Console.WriteLine($"MEMPHIS WALKER: {walker.Name} walks around {walker.Neighborhood.Name}");
+                foreach (var walker in walkersInMemphis)
+                {
+                    Console.WriteLine($"MEMPHIS WALKER: {walker.Name} walks around {walker.Neighborhood.Name}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No walkers here!");
             }
             Console.WriteLine("");
             Console.WriteLine("");

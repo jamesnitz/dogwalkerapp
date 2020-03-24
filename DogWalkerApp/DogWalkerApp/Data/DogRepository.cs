@@ -13,7 +13,7 @@ namespace DogWalkerApp.Data
         {
             get
             {
-                string _connectionString = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=DogWalkerApp; Integrated Security=True";
+                string _connectionString = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=DogWalking; Integrated Security=True";
                 return new SqlConnection(_connectionString);
             }
         }
